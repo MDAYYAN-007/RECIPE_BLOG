@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style2.css">
+    <title>Login</title>
+</head>
+<body>
+    <div class="container">
+        <form action="/login" method="post">
+            <h1 class="box3-h1-1">Login To Your Recipe Book</h1>
+            <input class="email" type="email" placeholder="Enter your email" name="username" required>
+            <input class="password" type="password" placeholder="Enter your password" name="password" required>
+            <button class="submit-btn"  type="submit">Login</button>
+            <div class="google-container">
+                <a href="/auth/google" class="google-button">
+                    <img src="\assets\google-icon.png" alt="Google Icon">
+                    <p>Signup Using Google</p>
+                </a>
+            </div>
+            <p>Create a new account?<a href="/"> Register here</a></p>
+        </form>
+    </div>
+</body>
+</html>

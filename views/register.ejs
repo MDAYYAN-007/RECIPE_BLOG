@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Register</title>
+</head>
+<body>
+    <div class="container">
+        <div class="box1">
+            <h1 class="box1-h1-1">Welcome to</h1>
+            <h1 class="box1-h1-2">RecipeKeeper!</h1>
+            <p>Welcome to your ultimate solution for organizing and preserving your cherished recipes! Whether you're a seasoned chef or a home cook, our platform is designed to help you store and manage your culinary creations with ease. Start your culinary journey today and keep all your beloved recipes in one convenient place!</p>
+        </div>
+        <div class="box2"></div>
+        <div class="box3">
+            <form action="/register" method="post">
+                <h1 class="box3-h1-1">Sign In</h1>
+                <input class="email" type="email" placeholder="Enter your email" required name="username">
+                <input class="password" type="password" placeholder="Enter your password" required name="password">
+                <button class="submit-btn"  type="submit">Register</button>             
+                <div class="google-container">
+                    <a href="/auth/google" class="google-button">
+                        <img src="\assets\google-icon.png" alt="Google Icon">
+                        <p>Signup Using Google</p>
+                    </a>
+                </div>
+                <p>Already have an acount? <a href="/login">Login here</a></p>
+            </form>
+        </div>
+        
+    </div>
+</body>
+</html>
