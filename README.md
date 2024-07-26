@@ -1,6 +1,5 @@
 Here's a simple `README.md` file to help document your Express.js project. You can customize it further based on your specific needs:
 
-```markdown
 # Recipe Management System
 
 ## Overview
@@ -56,7 +55,6 @@ This is a Recipe Management System built with Node.js, Express, PostgreSQL, and 
 
 5. Start the server:
    ```bash
-   nodemon server.js
    nodemon index.js
    ```
 
