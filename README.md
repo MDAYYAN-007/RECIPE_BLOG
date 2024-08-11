@@ -1,5 +1,3 @@
-Here's a simple `README.md` file to help document your Express.js project. You can customize it further based on your specific needs:
-
 # Recipe Management System
 
 ## Overview
