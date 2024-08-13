@@ -1,18 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 body {
-    background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+    background-image: linear-gradient(135deg, #dfe9f3 0%, #ffffff 100%);
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: "Roboto", sans-serif;
+    margin: 0px;
 }
 
 .container {
-    background-image: linear-gradient(to right,
-            #e4afcb 0%, #b8cbb8 0%, #b8cbb8 0%,
-            #e2c58b 30%, #c2ce9c 64%, #7edbdc 100%);
+    background-image: linear-gradient(to right, #a8edea 0%, #fed6e3 100%);
     width: 40%;
     height: auto;
     padding: 10px 20px;
@@ -78,7 +77,7 @@ button:hover {
     transition: all 1s;
     opacity: 0.7;
     inset: -1px; /* Change this to -inset-px equivalent */
-    background: linear-gradient(to right, #44BCFF, #FF44EC, #FF675E);
+    background: linear-gradient(to right, #88d3ce, #6e7dfe, #b89dff);
     border-radius: 1rem; /* Change to match the rounded-xl equivalent */
     filter: blur(4px);
     z-index: 0;
@@ -97,12 +96,12 @@ button:hover {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem 2rem; /* Adjust padding to match px-8 py-4 */
+    padding: .7rem 1rem; /* Adjust padding to match px-8 py-4 */
     font-size: 1.125rem; /* Adjust to text-lg equivalent */
     font-weight: bold;
     color: white;
-    background-color: #1F2937; /* Equivalent to bg-gray-900 */
-    font-family: 'YourFont', sans-serif; /* Replace 'YourFont' with your actual font-family */
+    background-color: #6c757d; /* Equivalent to bg-gray-900 */
+    font-family: 'Roboto', sans-serif;
     border-radius: 1rem; /* Adjust to match rounded-xl */
     z-index: 1;
     outline: none;
@@ -112,7 +111,7 @@ button:hover {
 }
 
 .button-content:focus {
-    box-shadow: 0 0 0 2px rgba(31, 41, 55, 0.5); /* Equivalent to focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 */
+    box-shadow: 0 0 0 2px rgba(108, 117, 125, 0.5); /* Equivalent to focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 */
 }
 
 .google-container {
@@ -169,13 +168,11 @@ a {
 }
 
 @media screen and (max-width: 950px) {
-
     input,
     button,
     .google-container {
         width: 73%;
     }
-
 }
 
 @media screen and (max-width: 850px) {
