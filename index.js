@@ -335,5 +335,9 @@ passport.deserializeUser(async (id, done) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server started on port ${port}`);
+  console.log(`
+    Server started on port ${port}
+    Open http://localhost:${port} to view it in your browser.
+  `);
 });
+
