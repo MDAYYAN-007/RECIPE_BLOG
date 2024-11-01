@@ -21,18 +21,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(cookieParser());
 
-// Configure express-session
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
-  cookie: { maxAge: 60 * 60 * 1000 } // 1 hour
+  cookie: { maxAge: 60 * 60 * 1000 }
 }));
 
 app.use(passport.initialize());
 app.use(passport.session());
 
-// PostgreSQL connection
 const db = new pg.Client({
   user: process.env.PG_USER,
   host: process.env.PG_HOST,
@@ -42,7 +40,6 @@ const db = new pg.Client({
 });
 db.connect();
 
-// Middleware to verify JWT token
 const verifyToken = (req, res, next) => {
   const token = req.cookies.token;
   if (!token) {
@@ -78,7 +75,6 @@ app.get("/login", (req, res) => {
   res.render("login.ejs");
 });
 
-// Display recipes for a specific user
 app.get("/recipes/:id", verifyToken, async (req, res) => {
   const userId = req.params.id;
   const result = await db.query("SELECT * FROM users WHERE id = $1", [userId]);
@@ -100,25 +96,23 @@ app.get("/recipes/:id", verifyToken, async (req, res) => {
   }
 });
 
-// Initiate Google OAuth authentication
 app.get("/auth/google", passport.authenticate("google", {
   scope: ["profile", "email"],
 }));
 
-// Handle Google OAuth callback and redirect to recipes
 app.get("/auth/google/callback", passport.authenticate("google", { failureRedirect: "/login" }), async (req, res) => {
   try {
     const existingUser = await db.query("SELECT * FROM users WHERE email = $1", [req.user.email]);
 
     if (existingUser.rows.length > 0) {
-      // User already exists, log them in
+      
       const userId = existingUser.rows[0].id;
       const token = jwt.sign({ email: req.user.email, id: userId }, JWT_SECRET, { expiresIn: '1h' });
       res.cookie('token', token, { httpOnly: true });
       res.redirect(`/recipes/${userId}`);
     } else {
-      // New user, create an account with a default or temporary password
-      const defaultPassword = 'temporaryPassword'; // Example default password
+      
+      const defaultPassword = 'temporaryPassword';
       const hashedPassword = await bcrypt.hash(defaultPassword, saltRounds);
       const newUser = await db.query(
         "INSERT INTO users (email, password) VALUES ($1, $2) RETURNING *",
@@ -131,7 +125,7 @@ app.get("/auth/google/callback", passport.authenticate("google", { failureRedire
     }
   } catch (err) {
     console.error("Error handling Google OAuth callback:", err);
-    res.redirect("/login"); // Handle error appropriately
+    res.redirect("/login");
   }
 });
 
